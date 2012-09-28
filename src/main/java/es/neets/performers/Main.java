@@ -1,6 +1,7 @@
 package es.neets.performers;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
@@ -20,8 +21,12 @@ public class Main {
 		Auditorio auditorio = (Auditorio)ctx.getBean("auditorio");
 		Escenario escenario = (Escenario)ctx.getBean("escenario");
 		escenario.abrirTelon();
-		Artista artista = (Artista)ctx.getBean("juan");
-		artista.perform();
+		Artista johnny = (Artista)ctx.getBean("johnny");
+		johnny.perform();
+		Artista kenny = (Artista)ctx.getBean("kenny");
+		kenny.perform();
+		
+		
 
 	}
 
