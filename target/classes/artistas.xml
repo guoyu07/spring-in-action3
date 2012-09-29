@@ -2,17 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
-
-	<bean id="juan" class="es.neets.performers.MalabaristaPoeta">
-		<constructor-arg value="15" />
-		<constructor-arg ref="soneto"/>
-	</bean>
-	<bean id="soneto" class="es.neets.performers.Soneto"/>
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+	default-init-method="encenderLuces" default-destroy-method="apagarLuces">
+ 	
 	<bean id="escenario" class="es.neets.performers.Escenario" factory-method="getInstance"/>
 	<bean id="ticket" class="es.neets.performers.Ticket" scope="prototype"/>
 	<bean id="taquilla" class="es.neets.performers.Taquilla">
 		<constructor-arg value="taquilla"/>	
 	</bean>
-	<bean id="auditorio" class="es.neets.performers.Auditorio" init-method="encenderLuces" destroy-method="apagarLuces"/>
+	<bean id="auditorio" class="es.neets.performers.Auditorio"/>
+	
+	<bean id="johnny" class="es.neets.performers.MalabaristaPoeta">
+		<constructor-arg value="15" />
+		<constructor-arg ref="soneto"/>
+	</bean>
+	<bean id="soneto" class="es.neets.performers.Soneto"/>
+	
+	<bean id="kenny" class="es.neets.performers.Instrumentalista">
+		<property name="song" value="Jingle bells"/>
+		<property name="age" value="37"/>
+		<property name="instrumento" ref="piano"/>
+	</bean>
+	<bean id="saxofon" class="es.neets.performers.Saxofon"/>
+	<bean id="piano" class="es.neets.performers.Piano"/>
 </beans>
